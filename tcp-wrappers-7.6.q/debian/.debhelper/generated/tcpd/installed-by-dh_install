@@ -1,0 +1,5 @@
+./tcpd
+./tcpdchk
+./tcpdmatch
+./try-from
+./safe_finger

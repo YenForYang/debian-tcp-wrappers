@@ -1,0 +1,6 @@
+libwrap0-dbgsym_7.6.q-27_amd64.deb debug optional automatic=yes
+libwrap0-dev_7.6.q-27_amd64.deb libdevel optional
+libwrap0_7.6.q-27_amd64.deb libs standard
+tcp-wrappers_7.6.q-27_amd64.buildinfo net important
+tcpd-dbgsym_7.6.q-27_amd64.deb debug optional automatic=yes
+tcpd_7.6.q-27_amd64.deb net optional

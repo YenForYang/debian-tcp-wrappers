@@ -1,0 +1,41 @@
+Format: 1.8
+Date: Mon, 30 Oct 2017 00:22:41 +0100
+Source: tcp-wrappers
+Binary: tcpd libwrap0 libwrap0-dev
+Built-For-Profiles: nobiarch nocheck nodoc
+Architecture: amd64
+Version: 7.6.q-27
+Distribution: unstable
+Urgency: medium
+Maintainer: Marco d'Itri <md@linux.it>
+Changed-By: Marco d'Itri <md@linux.it>
+Description:
+ libwrap0   - Wietse Venema's TCP wrappers library
+ libwrap0-dev - Wietse Venema's TCP wrappers library, development files
+ tcpd       - Wietse Venema's TCP wrapper utilities
+Closes: 855919
+Changes:
+ tcp-wrappers (7.6.q-27) unstable; urgency=medium
+ .
+   * Stop recommending tcpd. (Closes: #855919)
+Checksums-Sha1:
+ 002a25d6f5ebf19bb6821780c12e29f210a9818d 31772 libwrap0-dbgsym_7.6.q-27_amd64.deb
+ 9426ef0b6f2f0413879e9a8999b8521e2a787d84 273368 libwrap0-dev_7.6.q-27_amd64.deb
+ a16b3f08e7baceac09152976247a8d98ad2e212e 34548 libwrap0_7.6.q-27_amd64.deb
+ 51cb456c8f358782430e7055170bcc097e8883a7 6025 tcp-wrappers_7.6.q-27_amd64.buildinfo
+ b21e3cbb8c64a233144929172bce196096a32726 34900 tcpd-dbgsym_7.6.q-27_amd64.deb
+ eda25b94f18167b33ec567578289c2fb3daf10f6 17048 tcpd_7.6.q-27_amd64.deb
+Checksums-Sha256:
+ eea19dc4c48f862b24f32a672fccbcbcc89f7ef392cfec160b20180da65fa4c1 31772 libwrap0-dbgsym_7.6.q-27_amd64.deb
+ db2cc46a977a249921a544965b6724d18b2d947c98e1dcef94acf3647c446593 273368 libwrap0-dev_7.6.q-27_amd64.deb
+ e6614a5d43952a07e4d5bb23f36f3794d5c18767eb68e444d2fa323f65c8d8a9 34548 libwrap0_7.6.q-27_amd64.deb
+ 384efbdc9a3c55d655e554c5f07167309125bec6b76f28ae03a11ad9c0f58f21 6025 tcp-wrappers_7.6.q-27_amd64.buildinfo
+ 7252a71567efdf475b253dc16c086bbf779d2e1e6f073bd97b6507c0a0c9d1b9 34900 tcpd-dbgsym_7.6.q-27_amd64.deb
+ dab3850fa1b4fdc43c2881cb88b5098b9d50ac5a1a758e46d2f80c505d9020e9 17048 tcpd_7.6.q-27_amd64.deb
+Files:
+ 43331ed49922465c2a15558288f33651 31772 debug optional libwrap0-dbgsym_7.6.q-27_amd64.deb
+ 9160a3569e077c8a0a2db69aca0c5a1c 273368 libdevel optional libwrap0-dev_7.6.q-27_amd64.deb
+ 013f249e258f0ee87eb3f4b9eb16f850 34548 libs standard libwrap0_7.6.q-27_amd64.deb
+ 8481ebd1e55d5e17569a96e1742ff803 6025 net important tcp-wrappers_7.6.q-27_amd64.buildinfo
+ fbae9c46a37728d329ceda64b8467e15 34900 debug optional tcpd-dbgsym_7.6.q-27_amd64.deb
+ 600158ad1d18d2897bc1b41ab556923d 17048 net optional tcpd_7.6.q-27_amd64.deb

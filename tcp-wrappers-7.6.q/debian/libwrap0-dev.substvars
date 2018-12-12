@@ -1,0 +1,2 @@
+misc:Depends=libwrap0 (= ${binary:Version})
+misc:Pre-Depends=

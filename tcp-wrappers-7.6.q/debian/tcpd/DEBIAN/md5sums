@@ -1,0 +1,5 @@
+644f31a08b5ff044302866d7373a693f  usr/sbin/safe_finger
+c77bfb5319be8ce1668babc285b37048  usr/sbin/tcpd
+93449c99b73f4ae9ad7c3621a02151f7  usr/sbin/tcpdchk
+53d102a2df8a4b463bcfca5c6faa6334  usr/sbin/tcpdmatch
+a75c1a4b8ba911f1bdc6d435fa8d5d67  usr/sbin/try-from

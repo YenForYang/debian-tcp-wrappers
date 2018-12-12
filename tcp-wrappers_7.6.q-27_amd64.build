@@ -1,0 +1,269 @@
+ dpkg-buildpackage -D -us -uc -ui -b -Jauto -Pnobiarch,nocheck,nodoc
+dpkg-buildpackage: info: source package tcp-wrappers
+dpkg-buildpackage: info: source version 7.6.q-27
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Marco d'Itri <md@linux.it>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ debian/rules clean
+dh_testdir
+rm -rf debian/.stamp-* shared/
+/usr/bin/make clean
+make[1]: Entering directory '/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q'
+rm -f tcpd miscd safe_finger tcpdmatch tcpdchk try-from *.[oa] core \
+libwrap*.so* \
+cflags
+rm -rf shared/
+make[1]: Leaving directory '/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q'
+dh_clean
+ debian/rules binary
+dh_testdir
+/usr/bin/make  COPTS="-g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2" LDOPTS="-Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--relax" linux
+make[1]: Entering directory '/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q'
+make[2]: Entering directory '/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q'
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o tcpd.o -c tcpd.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c hosts_access.c -o shared/hosts_access.o
+hosts_access.c(308): warning #274: declaration is not visible outside of function
+  struct hosts_info *host;
+         ^
+
+hosts_access.c(352): warning #180: argument is incompatible with formal parameter
+  	return (hostfile_match(tok, host));
+  	                            ^
+
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c options.c -o shared/options.o
+options.c(237): warning #2218: result of call is not used
+  	    write(request->fd, "", 1);
+  	    ^
+
+options.c(243): warning #2218: result of call is not used
+  	    write(request->fd, obuf, strlen(obuf));
+  	    ^
+
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c shell_cmd.c -o shared/shell_cmd.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c rfc931.c -o shared/rfc931.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c eval.c -o shared/eval.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c hosts_ctl.c -o shared/hosts_ctl.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c refuse.c -o shared/refuse.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c percent_x.c -o shared/percent_x.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c clean_exit.c -o shared/clean_exit.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c weak_symbols.c -o shared/weak_symbols.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c fromhost.c -o shared/fromhost.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c fix_options.c -o shared/fix_options.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c socket.c -o shared/socket.o
+socket.c(118): warning #167: argument of type "size_t={unsigned long} *" is incompatible with parameter of type "socklen_t={__socklen_t={unsigned int}} *__restrict__"
+      if (getpeername(fd, (struct sockaddr *) & client, &len) < 0) {
+                                                        ^
+
+socket.c(122): warning #167: argument of type "size_t={unsigned long} *" is incompatible with parameter of type "socklen_t={__socklen_t={unsigned int}} *__restrict__"
+  		     (struct sockaddr *) & client, &len) < 0) {
+  		                                   ^
+
+socket.c(143): warning #167: argument of type "size_t={unsigned long} *" is incompatible with parameter of type "socklen_t={__socklen_t={unsigned int}} *__restrict__"
+      if (getsockname(fd, (struct sockaddr *) & server, &len) < 0) {
+                                                        ^
+
+socket.c(444): warning #167: argument of type "size_t={unsigned long} *" is incompatible with parameter of type "socklen_t={__socklen_t={unsigned int}} *__restrict__"
+      (void) recvfrom(fd, buf, sizeof(buf), 0, (struct sockaddr *) & sin, &size);
+                                                                          ^
+
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c tli.c -o shared/tli.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c workarounds.c -o shared/workarounds.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c update.c -o shared/update.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c misc.c -o shared/misc.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c diag.c -o shared/diag.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c percent_m.c -o shared/percent_m.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -fpic -c myvsyslog.c -o shared/myvsyslog.o
+rm -f shared/libwrap.so.0.7.6
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--relax -o shared/libwrap.so.0.7.6 -Bsymbolic-functions -shared -Wl,-soname=libwrap.so.0 -Wl,--version-script=libwrap.lds shared/hosts_access.o shared/options.o shared/shell_cmd.o shared/rfc931.o shared/eval.o shared/hosts_ctl.o shared/refuse.o shared/percent_x.o shared/clean_exit.o shared/weak_symbols.o shared/fromhost.o shared/fix_options.o shared/socket.o shared/tli.o shared/workarounds.o shared/update.o shared/misc.o shared/diag.o shared/percent_m.o shared/myvsyslog.o -lnsl
+ln -sf libwrap.so.0.7.6 shared/libwrap.so.0
+ln -sf libwrap.so.0 shared/libwrap.so
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--relax -o tcpd tcpd.o -Lshared -lwrap
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o tcpdmatch.o -c tcpdmatch.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o fakelog.o -c fakelog.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o inetcf.o -c inetcf.c
+inetcf.c(281): warning #266: function "malloc" declared implicitly
+      (struct inet_ent *) malloc(sizeof(struct inet_ent) + strlen(name));
+                          ^
+
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o scaffold.o -c scaffold.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--relax -o tcpdmatch tcpdmatch.o fakelog.o inetcf.o scaffold.o -Lshared -lwrap
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o try-from.o -c try-from.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--relax -o try-from try-from.o fakelog.o -Lshared -lwrap
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o safe_finger.o -c safe_finger.c
+safe_finger.c(78): warning #2218: result of call is not used
+  	    setgid(pwd->pw_gid);
+  	    ^
+
+safe_finger.c(80): warning #2218: result of call is not used
+  	    setuid(pwd->pw_uid);
+  	    ^
+
+safe_finger.c(82): warning #2218: result of call is not used
+  	    setgid(UNPRIV_UGID);
+  	    ^
+
+safe_finger.c(84): warning #2218: result of call is not used
+  	    setuid(UNPRIV_UGID);
+  	    ^
+
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--relax -o safe_finger safe_finger.o
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o tcpdchk.o -c tcpdchk.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--relax -o tcpdchk tcpdchk.o fakelog.o inetcf.o scaffold.o -Lshared -lwrap
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o hosts_access.o -c hosts_access.c
+hosts_access.c(308): warning #274: declaration is not visible outside of function
+  struct hosts_info *host;
+         ^
+
+hosts_access.c(352): warning #180: argument is incompatible with formal parameter
+  	return (hostfile_match(tok, host));
+  	                            ^
+
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o options.o -c options.c
+options.c(237): warning #2218: result of call is not used
+  	    write(request->fd, "", 1);
+  	    ^
+
+options.c(243): warning #2218: result of call is not used
+  	    write(request->fd, obuf, strlen(obuf));
+  	    ^
+
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o shell_cmd.o -c shell_cmd.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o rfc931.o -c rfc931.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o eval.o -c eval.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o hosts_ctl.o -c hosts_ctl.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o refuse.o -c refuse.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o percent_x.o -c percent_x.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o clean_exit.o -c clean_exit.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o weak_symbols.o -c weak_symbols.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o fromhost.o -c fromhost.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o fix_options.o -c fix_options.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o socket.o -c socket.c
+socket.c(118): warning #167: argument of type "size_t={unsigned long} *" is incompatible with parameter of type "socklen_t={__socklen_t={unsigned int}} *__restrict__"
+      if (getpeername(fd, (struct sockaddr *) & client, &len) < 0) {
+                                                        ^
+
+socket.c(122): warning #167: argument of type "size_t={unsigned long} *" is incompatible with parameter of type "socklen_t={__socklen_t={unsigned int}} *__restrict__"
+  		     (struct sockaddr *) & client, &len) < 0) {
+  		                                   ^
+
+socket.c(143): warning #167: argument of type "size_t={unsigned long} *" is incompatible with parameter of type "socklen_t={__socklen_t={unsigned int}} *__restrict__"
+      if (getsockname(fd, (struct sockaddr *) & server, &len) < 0) {
+                                                        ^
+
+socket.c(444): warning #167: argument of type "size_t={unsigned long} *" is incompatible with parameter of type "socklen_t={__socklen_t={unsigned int}} *__restrict__"
+      (void) recvfrom(fd, buf, sizeof(buf), 0, (struct sockaddr *) & sin, &size);
+                                                                          ^
+
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o tli.o -c tli.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o workarounds.o -c workarounds.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o update.o -c update.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o misc.o -c misc.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o diag.o -c diag.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o percent_m.o -c percent_m.c
+icc -g -O2 -fdebug-prefix-map=/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wdate-time -D_FORTIFY_SOURCE=2 -DFACILITY=LOG_DAEMON -DHOSTS_ACCESS  -DNETGROUP    -DDAEMON_UMASK=022 -DREAL_DAEMON_DIR=\"/usr/sbin\" -DPROCESS_OPTIONS -DACLEXEC -DKILL_IP_OPTIONS -DSEVERITY=LOG_INFO	 -DRFC931_TIMEOUT=10  -DHOSTS_DENY=\"/etc/hosts.deny\" -DHOSTS_ALLOW=\"/etc/hosts.allow\"   -DSYS_ERRLIST_DEFINED -DHAVE_STRERROR -DHAVE_WEAKSYMS -DINET6=1 -Dss_family=__ss_family -Dss_len=__ss_len    -o myvsyslog.o -c myvsyslog.c
+rm -f libwrap.a
+ar rv libwrap.a hosts_access.o options.o shell_cmd.o rfc931.o eval.o hosts_ctl.o refuse.o percent_x.o clean_exit.o weak_symbols.o fromhost.o fix_options.o socket.o tli.o workarounds.o update.o misc.o diag.o percent_m.o myvsyslog.o
+ar: creating libwrap.a
+a - hosts_access.o
+a - options.o
+a - shell_cmd.o
+a - rfc931.o
+a - eval.o
+a - hosts_ctl.o
+a - refuse.o
+a - percent_x.o
+a - clean_exit.o
+a - weak_symbols.o
+a - fromhost.o
+a - fix_options.o
+a - socket.o
+a - tli.o
+a - workarounds.o
+a - update.o
+a - misc.o
+a - diag.o
+a - percent_m.o
+a - myvsyslog.o
+ranlib libwrap.a
+make[2]: Leaving directory '/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q'
+make[1]: Leaving directory '/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q'
+touch debian/.stamp-build
+dh_testdir
+dh_prep
+dh_installdirs
+dh_install
+dh_installdocs --link-doc=libwrap0
+dh_installdocs -p libwrap0 README
+dh_installchangelogs CHANGES
+dh_installman -p tcpd *.8
+dh_installman -p libwrap0 *.5
+dh_installman -p libwrap0-dev *.3
+dh_link
+mkdir -p /dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q/debian/libwrap0/lib/x86_64-linux-gnu/ /dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q/debian/libwrap0-dev/usr/lib/x86_64-linux-gnu/
+cp shared/libwrap.so.0.7.6 /dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q/debian/libwrap0/lib/x86_64-linux-gnu/
+ln -s libwrap.so.0.7.6 /dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q/debian/libwrap0/lib/x86_64-linux-gnu/libwrap.so.0
+ln -s /lib/x86_64-linux-gnu/libwrap.so.0 \
+	/dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q/debian/libwrap0-dev/usr/lib/x86_64-linux-gnu/libwrap.so
+mv /dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q/debian/libwrap0-dev/usr/lib/libwrap.a /dev/shm/all/tcp-wrappers/tcp-wrappers-7.6.q/debian/libwrap0-dev/usr/lib/x86_64-linux-gnu/
+dh_link
+dh_strip
+dh_compress
+dh_fixperms
+dh_installdebconf
+dh_makeshlibs -- -c4
+dh_installdeb
+dh_shlibdeps
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/libwrap0/lib/x86_64-linux-gnu/libwrap.so.0.7.6 was not linked against libdl.so.2 (it uses none of the library's symbols)
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/tcpd/usr/sbin/safe_finger debian/tcpd/usr/sbin/tcpd debian/tcpd/usr/sbin/tcpdchk debian/tcpd/usr/sbin/tcpdmatch debian/tcpd/usr/sbin/try-from were not linked against libdl.so.2 (they use none of the library's symbols)
+dh_gencontrol
+dh_md5sums
+dh_builddeb
+dpkg-deb: building package 'tcpd' in '../tcpd_7.6.q-27_amd64.deb'.
+dpkg-deb: building package 'libwrap0' in '../libwrap0_7.6.q-27_amd64.deb'.
+dpkg-deb: building package 'tcpd-dbgsym' in '../tcpd-dbgsym_7.6.q-27_amd64.deb'.
+dpkg-deb: building package 'libwrap0-dbgsym' in '../libwrap0-dbgsym_7.6.q-27_amd64.deb'.
+dpkg-deb: building package 'libwrap0-dev' in '../libwrap0-dev_7.6.q-27_amd64.deb'.
+ dpkg-genbuildinfo --build=binary
+ dpkg-genchanges --build=binary >../tcp-wrappers_7.6.q-27_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+Now running lintian tcp-wrappers_7.6.q-27_amd64.changes ...
+W: libwrap0: excessive-priority-for-library-package standard
+E: libwrap0: manpage-not-compressed usr/share/man/man5/hosts.allow.5
+E: libwrap0: manpage-not-compressed usr/share/man/man5/hosts.deny.5
+E: libwrap0-dev: manpage-not-compressed usr/share/man/man3/hosts_ctl.3
+E: libwrap0-dev: manpage-not-compressed usr/share/man/man3/request_init.3
+E: libwrap0-dev: manpage-not-compressed usr/share/man/man3/request_set.3
+W: tcpd: hardening-no-pie usr/sbin/safe_finger
+W: tcpd: hardening-no-pie usr/sbin/tcpd
+W: tcpd: hardening-no-pie usr/sbin/tcpdchk
+W: tcpd: hardening-no-pie usr/sbin/tcpdmatch
+W: tcpd: hardening-no-pie usr/sbin/try-from
+W: tcpd: binary-without-manpage usr/sbin/safe_finger
+W: tcpd: binary-without-manpage usr/sbin/tcpd
+W: tcpd: binary-without-manpage usr/sbin/tcpdchk
+W: tcpd: binary-without-manpage usr/sbin/tcpdmatch
+W: tcpd: binary-without-manpage usr/sbin/try-from
+Finished running lintian.
