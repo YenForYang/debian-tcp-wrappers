@@ -4,10 +4,10 @@ Version: 7.6.q-27
 Auto-Built-Package: debug-symbols
 Architecture: amd64
 Maintainer: Marco d'Itri <md@linux.it>
-Installed-Size: 48
+Installed-Size: 51
 Depends: libwrap0 (= 7.6.q-27)
 Section: debug
 Priority: optional
 Multi-Arch: same
 Description: debug symbols for libwrap0
-Build-Ids: 04faec0e0b311687c4119ecb9e4de38bc7ab36a1
+Build-Ids: 7cb21fda264cdd9d3818b87dde7649416381b19b

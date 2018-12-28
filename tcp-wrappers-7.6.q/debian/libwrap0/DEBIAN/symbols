@@ -1,4 +1,30 @@
 libwrap.so.0 libwrap0 #MINVER#
+ __cacheSize@Base 7.6.q-27
+ __intel_avx_rep_memcpy@Base 7.6.q-27
+ __intel_memcpy@Base 7.6.q-27
+ __intel_mic_avx512f_memcpy@Base 7.6.q-27
+ __intel_new_memcpy@Base 7.6.q-27
+ __intel_sse4_atol@Base 7.6.q-27
+ __intel_sse4_strcat@Base 7.6.q-27
+ __intel_sse4_strchr@Base 7.6.q-27
+ __intel_sse4_strcpy@Base 7.6.q-27
+ __intel_sse4_strcspn@Base 7.6.q-27
+ __intel_sse4_strend@Base 7.6.q-27
+ __intel_sse4_strlen@Base 7.6.q-27
+ __intel_sse4_strspn@Base 7.6.q-27
+ __intel_sse4_strtok@Base 7.6.q-27
+ __intel_ssse3_memcpy@Base 7.6.q-27
+ __intel_ssse3_rep_memcpy@Base 7.6.q-27
+ __intel_ssse3_strncpy@Base 7.6.q-27
+ _intel_fast_memcmp@Base 7.6.q-27
+ _intel_fast_memcpy.A@Base 7.6.q-27
+ _intel_fast_memcpy.J@Base 7.6.q-27
+ _intel_fast_memcpy.M@Base 7.6.q-27
+ _intel_fast_memcpy.P@Base 7.6.q-27
+ _intel_fast_memcpy.V@Base 7.6.q-27
+ _intel_fast_memcpy.Z@Base 7.6.q-27
+ _intel_fast_memcpy.a@Base 7.6.q-27
+ _intel_fast_memcpy@Base 7.6.q-27
  allow_severity@Base 7.6-4~
  cidr_mask_addr@Base 7.6-4~
  clean_exit@Base 7.6-4~

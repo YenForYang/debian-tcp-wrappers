@@ -3,7 +3,7 @@ Source: tcp-wrappers
 Version: 7.6.q-27
 Architecture: amd64
 Maintainer: Marco d'Itri <md@linux.it>
-Installed-Size: 1792
+Installed-Size: 96
 Depends: libwrap0 (= 7.6.q-27)
 Section: libdevel
 Priority: optional
